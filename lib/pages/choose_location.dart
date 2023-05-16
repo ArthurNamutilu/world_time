@@ -8,12 +8,15 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  // function that simulates a delay
-  void getData(){
-    Future.delayed(Duration(seconds: 3), (){
-      print('Done');   // prints 'Done' after 3 seconds
+  // function that simulates a delay - gets username
+  void getData() async {
+    String name = await Future.delayed(Duration(seconds: 3), (){
+      return 'Arthur';
     });
-    print('statement');
+    String career = await Future.delayed(Duration(seconds: 2), (){
+      return 'Software Engineer & a Fluttter Developer';
+    });
+    print('$name is a $career');
   }
   @override
   void initState() {
