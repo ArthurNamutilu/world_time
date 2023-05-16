@@ -8,15 +8,20 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  int counter = 0;
+  // function that simulates a delay
+  void getData(){
+    Future.delayed(Duration(seconds: 3), (){
+      print('Done');   // prints 'Done' after 3 seconds
+    });
+    print('statement');
+  }
   @override
   void initState() {
     super.initState();
-      print('InitialState() ran');
+    getData();
   }
   @override
   Widget build(BuildContext context) {
-    print('Build() ran');
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -28,10 +33,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: ElevatedButton(
         onPressed: () {
           setState(() {
-            counter += 1;
           });
         },
-        child: Text('Counter value is $counter'),
+        child: Text('Counter value'),
       ),
     );
   }
